@@ -16,23 +16,23 @@ Add, fetch, update, and delete transactions. Transactions include activities lik
 ## Installation
 1. Clone the repository to your local machine:
 ```bash
-    https://github.com/Akisa-Moruri/Real-Estate-Management-System/tree/main
+    git clone git@github.com:Akisa-Moruri/Real-Estate-Management-System.git
 ```
 2. Install dependencies:
+```bash
+    cd Real-Estate-Management-System
+```
+3. Install dependencies:
 ```bash
     pip install -r requirements.txt
 ```
 ## Usage
 
-1. Navigate to the project directory:
-```bash
-    cd real-estate-management
-```
-2. Run the application:
+1. Run the application:
 ```bash
     python main.py
 ```
-3. The application is run from the command line using the `main.py` script. Upon running the script, the application will initialize the database, create the necessary tables, and perform some example operations.
+The application is run from the command line using the `main.py` script. Upon running the script, the application will initialize the database, create the necessary tables, and perform some example operations.
 
 You can modify the `main.py` script to include your desired operations or create additional scripts to interact with the application.
 
