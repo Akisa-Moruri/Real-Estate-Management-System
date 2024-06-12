@@ -21,7 +21,7 @@ class Client:
     # Method to update client information by their ID
     @classmethod
     def update_client_by_id(cls, client_id, name, email):
-        sql = "UPDATE client SET location = ?, email = ? WHERE id = ?"
+        sql = "UPDATE client SET name = ?, email = ? WHERE id = ?"
         CURSOR.execute(sql, (name, email, client_id))
         CONN.commit()
         return client_id
@@ -36,7 +36,7 @@ class Client:
     
     # Method to fetch all client from the database
     @classmethod
-    def fetch_all_client(cls):
+    def fetch_all_clients(cls):
         sql = "SELECT * FROM client"
         CURSOR.execute(sql)
         return CURSOR.fetchall()

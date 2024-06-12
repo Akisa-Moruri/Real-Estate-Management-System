@@ -9,9 +9,9 @@ from lib.config import CONN, CURSOR
 class Property:
     # Method to add a new property to the database
     @classmethod
-    def create_property(cls, property_location, price, property_type, size):
-        sql = "INSERT INTO property(property_location, price, property_type, size) VALUES (?, ?, ?, ?)"
-        CURSOR.execute(sql, (property_location, price, property_type, size))
+    def create_property(cls, property_location, price, property_type):
+        sql = "INSERT INTO property(property_location, price, property_type) VALUES (?, ?, ?)"
+        CURSOR.execute(sql, (property_location, price, property_type))
         CONN.commit()
         return CURSOR.lastrowid
     
@@ -60,7 +60,7 @@ class Property:
         return CURSOR.fetchall()
     
     @classmethod
-    # Method to search property by property type and size
+    # Method to search property by property type
     def search_property_by_property_type(cls, property_type):
         sql = "SELECT * FROM property WHERE property_type = ?"
         CURSOR.execute(sql, (property_type,))

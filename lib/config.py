@@ -16,8 +16,7 @@ class Database:
             id INTEGER PRIMARY KEY,
             property_location TEXT(40),
             price INTEGER,
-            property_type TEXT,
-            size varchar(40))"""
+            property_type TEXT)"""
         
         # SQL query to create the 'client' table
         sql2 = """

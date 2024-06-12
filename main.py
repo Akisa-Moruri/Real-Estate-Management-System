@@ -45,7 +45,7 @@ def property_operations():
         print("5.Delete a property by its id")
         print("6.Fetch all properties")
         print("7.Search for properties within a price range")
-        print("8.Search properties by type of property and size")
+        print("8.Search properties by type of property")
         print("9.Return to main menu")
         
         # Asking for user input
@@ -56,10 +56,9 @@ def property_operations():
             # Adding a new property
             property_location = input("Enter property location: ")
             price = input("Enter price: ")
-            property_type = input("Enter the type of property: ")
-            size = input("Enter the size of the property: ")
-            
-            property_id = property.create_property(property_location, price, property_type, size)
+            property_type = input("Enter the type of property (e.g., house, apartment, commercial): ")
+                                   
+            property_id = property.create_property(property_location, price, property_type)
             print(f"Property with id {property_id} added successfully")
 
         elif choice == "2":
@@ -115,8 +114,8 @@ def property_operations():
 
                 
         elif choice == "8":
-            # Search properties by type of property and size
-            property_type = input("Enter the type of property (e.g., house, apartment): ")
+            # Search properties by type of property
+            property_type = input("Enter the type of property (e.g., house, apartment, commercial): ")
 
             found_properties = Property.search_property_by_property_type(property_type)
 
@@ -191,9 +190,9 @@ def client_operations():
 
         # Fetching all clients
         elif choice == "5":
-            all_clients = client.fetch_all_clients()
+            all_clients = Client.fetch_all_clients()
             print("\nAll clients")
-            print(all_clients)    
+            print(all_clients)
         
                       
         # Returning to the main menu
@@ -223,37 +222,36 @@ def transaction_operations():
         
         
         # Create an instance of the transaction class
-        transaction = Transaction()
+        trade = Transaction()
         
         # Add a new transaction
         if choice == "1":
-                property_id = input("Enter property id: ")
-                amount = input("Enter amount: ")
-                date = input("Enter date (YYYY-MM-DD): ")
-                client_id = input("Enter client id: ")
-                transaction_type = input("Enter transaction type: ")
-                transaction_id = transaction.create_transaction(property_id, amount, date, client_id, transaction_type)
-                print(f"\nTransaction {transaction_id} created")
-
+            property_id = input("Enter property id: ")
+            amount = input("Enter amount: ")
+            date = input("Enter date (YYYY-MM-DD): ")
+            client_id = input("Enter client id: ")
+            transaction_type = input("Enter transaction type (e.g., buy, rent, sell): ")
+            transaction_id = trade.create_transaction(property_id, amount, date, client_id, transaction_type)
+            print(f"\nTransaction {transaction_id} created")
         
         # Fetch transactions by property ID
         elif choice == "2":
                 property_id = input("Enter property id: ")
-                transactions_by_property_id = transaction.get_transactions_by_id(property_id)
+                transactions_by_property_id = trade.get_transactions_by_id(property_id)
                 print("\nTransactions by property ID:")
                 print(transactions_by_property_id)
                 
                 
         # Fetch all transactions
         elif choice == "3":
-            all_transactions = transaction.fetch_all_transactions()
+            all_transactions = trade.fetch_all_transactions()
             print("\nAll transactions")
             print(all_transactions)
             
         # Delete a transaction by ID
         elif choice == "4":
             transaction_id = input("Enter transaction id: ")
-            deleted_transaction_id = transaction.delete_transaction_by_id(transaction_id)
+            deleted_transaction_id = trade.delete_transaction_by_id(transaction_id)
             print(f"\nTransaction {deleted_transaction_id} deleted successfully")
             
             

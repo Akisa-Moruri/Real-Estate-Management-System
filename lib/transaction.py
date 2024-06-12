@@ -6,7 +6,7 @@ class Transaction:
     # Method to add a new transaction to the database
     @classmethod
     def create_transaction(cls, property_id, amount, date, client_id, transaction_type):
-        sql = "INSERT INTO transaction(property_id, amount, date, client_id, transaction_type) VALUES (?, ?, ?, ?, ?)"
+        sql = "INSERT INTO transactions (property_id, amount, date, client_id, transaction_type) VALUES (?, ?, ?, ?, ?)"
         CURSOR.execute(sql, (property_id, amount, date, client_id, transaction_type))
         CONN.commit()
         return CURSOR.lastrowid
@@ -22,7 +22,7 @@ class Transaction:
     # Method to delete a transaction by its ID
     @classmethod
     def delete_transaction_by_id(cls, transaction_id):
-        sql = "DELETE FROM transaction WHERE id = ?"
+        sql = "DELETE FROM transactions WHERE id = ?"
         CURSOR.execute(sql, (transaction_id,))
         CONN.commit()
         return transaction_id
